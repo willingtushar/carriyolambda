@@ -12,7 +12,7 @@ import java.util.Map;
 public class UserTransformer {
     public static String getDocumentJsonString(Map<String, AttributeValue> newImage) throws JsonProcessingException {
         String firstName = newImage.get("firstName").getS();
-        String lastName = newImage.get("lastName").getS();
+        String lastName = newImage.get("lastName") != null ? newImage.get("lastName").getS() : null;
         String userId = newImage.get("userid").getS();
         String email = newImage.get("email").getS();
 
@@ -35,8 +35,8 @@ public class UserTransformer {
         String city = rawAddress.get("city").getS();
         String postalCode = rawAddress.get("postalCode").getS();
         String addressLine1 = rawAddress.get("addressLine1").getS();
-        String addressLine2 = rawAddress.get("addressLine2").getS();
-        String addressLine3 = rawAddress.get("addressLine3").getS();
+        String addressLine2 = rawAddress.get("addressLine2") != null ? rawAddress.get("addressLine2").getS() : null;
+        String addressLine3 = rawAddress.get("addressLine3") != null ? rawAddress.get("addressLine3").getS() : null;
         String state = rawAddress.get("state").getS();
         String landmark = rawAddress.get("landmark").getS();
 
